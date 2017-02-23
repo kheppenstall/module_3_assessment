@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   def index
-    @stores = Store.by_zip(params[:q])
+    @store_presenter  = StorePresenter.by_zip(params[:q])
+    binding.pry
   end
-
 end

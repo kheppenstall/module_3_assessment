@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe 'Store Service' do
-  context '.conn' do
+  context '.conn(zip)' do
     it 'returns a Faraday object' do
 
-      expect(StoreService.conn).to be_a Faraday::Connection
+      expect(StoreService.conn(1)).to be_a Faraday::Connection
     end
   end
 
@@ -23,8 +23,8 @@ describe 'Store Service' do
       stores_response = StoreService.by_zip(zip)
 
       expect(stores_response).to be_a Hash
-      expect(stores_response).to have_key :store_count
-      expect(stores_response[:store_count]).to eq 16
+      expect(stores_response).to have_key :total
+      expect(stores_response[:total]).to eq 16
       expect(stores_response).to have_key :stores
 
       raw_stores = stores_response[:stores]
