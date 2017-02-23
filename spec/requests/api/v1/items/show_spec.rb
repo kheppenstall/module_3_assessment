@@ -10,7 +10,7 @@ describe 'Items API' do
 
       item = JSON.parse(response.body)
 
-      expect(response).to be_succes
+      expect(response).to be_success
       expect(item).to be_a Hash
 
       item_attributes.each do |attribute|
