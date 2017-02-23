@@ -1,6 +1,6 @@
 class StoreService
   def self.conn(zip)
-    Faraday.new(url: "https://api.bestbuy.com/v1/stores(area(80202,25))") do |faraday|
+    Faraday.new(url: "https://api.bestbuy.com/v1/stores(area(#{zip},25))") do |faraday|
       faraday.adapter Faraday.default_adapter
     end
   end

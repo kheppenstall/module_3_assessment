@@ -2,7 +2,7 @@
 
 <h3><%= @store_presenter.store_count %> Total Stores</h3>
 <ul>
-  <%= @store_presenter.stores.each do |store| %>
+  <% @store_presenter.stores.each do |store| %>
     <div class='store'>
       <h3>Name: <%= store.name %> </h3>
       <li>City: <%= store.city %> </li>

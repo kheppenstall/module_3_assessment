@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Store Presenter' do
   context '.by_zip(zip)' do
 
-     before do
+    before do
       VCR.insert_cassette 'stores_presenter', record: :new_episodes
     end
 

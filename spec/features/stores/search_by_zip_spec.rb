@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'User searches zip code' do
   context 'valid zip' do
+    
     before do
       VCR.insert_cassette 'stores_by_zip', record: :new_episodes
     end
