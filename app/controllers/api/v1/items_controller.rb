@@ -20,6 +20,15 @@ class Api::V1::ItemsController < ApplicationController
     end
   end
 
+  def create
+    item = Item.new(item_params)
+    if item.save
+      render status: 201, json: item
+    else
+      unsuccessful_request
+    end
+  end
+
   private
 
     def find_item
@@ -28,6 +37,10 @@ class Api::V1::ItemsController < ApplicationController
 
     def unsuccessful_request
       render status: 400, json: 'Invalid request.'
+    end
+
+    def item_params
+      params.require(:item).permit(:name, :description, :image_url)
     end
 
 end
