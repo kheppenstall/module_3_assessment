@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 describe 'Items API' do
-
-  let(:item_attributes) { ['id', 'name', 'description', 'image_url'] }
-
   context 'get items' do
     it 'returns all items' do
       create_list(:item, 10)
