@@ -4,14 +4,18 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def show
-    item = Item.find(params[:id])
-    render json: item
+    render json: find_item
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.delete
+    find_item.delete
     render status: 204, json: 'Item successfully deleted.'
   end
+
+  private
+
+    def find_item
+      Item.find(params[:id])
+    end
 
 end
