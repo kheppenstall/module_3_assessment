@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'Items API' do
-  context 'get item' do
+describe 'Items API get' do
+  context 'valid id' do
     it 'returns item' do
       create_list(:item, 3)
       first_item = Item.find(1)
@@ -20,6 +20,14 @@ describe 'Items API' do
 
       expect(item).to_not have_key 'updated_at'
       expect(item).to_not have_key 'created_at'
+    end
+  end
+
+  context 'invalid id' do
+    it 'returns 400' do
+      get 'api/v1/items/1'
+
+      expect(response.status).to eq 400
     end
   end
 end
